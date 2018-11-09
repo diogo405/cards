@@ -1,11 +1,15 @@
 <template>
-	<div class="card">
+	<div :class="[{'card--face': card.status == 'face'}, 'card']">
+		{{card.name}}
 	</div>
 </template>
 
 <script>
 export default {
-  name: "card"
+  name: "card",
+  props: {
+    card: Object
+  }
 };
 </script>
 
@@ -16,5 +20,8 @@ export default {
   height: 200px;
   margin-top: 50px;
   cursor: pointer;
+}
+.card--face {
+  background: yellow;
 }
 </style>
