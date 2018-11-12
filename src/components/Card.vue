@@ -19,7 +19,11 @@ export default {
   width: calc(100% / 4 - 50px);
   height: 200px;
   margin-top: 50px;
+  margin-left: 50px;
   cursor: pointer;
+}
+.card:nth-child(4n + 1) {
+  margin-left: 0;
 }
 .card--face {
   background: yellow;

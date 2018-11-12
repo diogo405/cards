@@ -30,24 +30,25 @@ export default {
     };
   },
   methods: {
-    toggleCard(cardIndex) {
+    turnBack(cardIndex) {
+      console.log(`Turning back: ${cardIndex}`);
       let card = this.cards[cardIndex];
-      let currrentCardStatus = card.status;
-      let newStatus = currrentCardStatus == "face" ? "back" : "face";
-      card.status = newStatus;
-      // prettier-ignore
+      card.status = "back";
+    },
+    turnFace(cardIndex) {
+      console.log(`Turning face: ${cardIndex}`);
+      let card = this.cards[cardIndex];
+      card.status = "face";
       setTimeout(() => {
-      	console.log('Turn back:', cardIndex);
-      	this.toggleCard(cardIndex)
-      }, 1000);
+        this.turnBack(cardIndex);
+      }, 2000);
     }
   },
   mounted() {
     // prettier-ignore
     setInterval(() => { 
       let cardIndex = Math.floor(Math.random() * this.cards.length);
-      console.log('Turn face:', cardIndex);
-      this.toggleCard(cardIndex); 
+      this.turnFace(cardIndex); 
     }, 1000);
   }
 };
